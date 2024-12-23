@@ -2,17 +2,19 @@ import { IColorContainer } from './App.types';
 
 export const colors: IColorContainer = {
     dark: {
-        text: '#eff3f2',
-        background: '#070c0b',
-        primary: '#a3d7c8',
-        secondary: '#287e65',
-        accent: '#51dab2',
+        text: '#ebede8',
+        background: '#060605',
+        primary: '#b5bdad',
+        secondary: '#4b5d5d',
+        accent: '#8e9ba4',
+        border: 'rgba(255, 255, 255, 0.1)',
     },
     light: {
-        text: '#0b0f0e',
-        background: '#f2f7f6',
-        primary: '#285c4e',
-        secondary: '#7fd7be',
-        accent: '#25ad84',
+        text: '#151712',
+        background: '#fafaf9',
+        primary: '#4a5242',
+        secondary: '#a2b4b4',
+        accent: '#5b6871',
+        border: 'rgba(0, 0, 0, 0.1)',
     },
 };

@@ -4,6 +4,7 @@ export interface IColor {
     primary: string;
     secondary: string;
     accent: string;
+    border: string;
 }
 
 export interface IColorContainer {
