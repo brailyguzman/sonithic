@@ -1,6 +1,6 @@
-import { createContext, FC, ReactNode, useState } from 'react';
+import { createContext, FC, ReactNode } from 'react';
 import { colors } from '../App.constants';
-import { Appearance } from 'react-native';
+import { ColorSchemeName, useColorScheme } from 'react-native';
 import { IColor } from '../App.types';
 
 interface IThemeProvider {
@@ -9,24 +9,19 @@ interface IThemeProvider {
 
 interface IThemeContext {
     colors: IColor;
-    theme: 'dark' | 'light';
-    toggleTheme: () => void;
+    theme: ColorSchemeName;
 }
 
 export const ThemeContext = createContext<IThemeContext | null>(null);
 
 export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
-    const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-        return Appearance.getColorScheme() || 'light';
-    });
+    const theme = useColorScheme();
 
-    const toggleTheme = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-    };
+    // TODO: Allow the user to select their preferred theme.
 
     return (
         <ThemeContext.Provider
-            value={{ colors: colors[theme], theme: theme, toggleTheme }}
+            value={{ colors: colors[theme || 'light'], theme: theme }}
         >
             {children}
         </ThemeContext.Provider>
