@@ -1,3 +1,5 @@
+import { MaterialIcons } from '@expo/vector-icons';
+
 export interface IColor {
     text: string;
     background: string;
@@ -11,3 +13,7 @@ export interface IColorContainer {
     dark: IColor;
     light: IColor;
 }
+
+export type MaterialIconName = React.ComponentProps<
+    typeof MaterialIcons
+>['name'];
